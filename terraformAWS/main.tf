@@ -10,7 +10,8 @@ resource "aws_subnet" "subnet"{
 
     vpc_id = aws_vpc.main.id
     cidr_block = "10.0.1.0/24"
-    availability_zone = "sa-eats-1"
+    availability_zone = "sa-eats-1a"
+    map_public_ip_on_launch = true
 
     tags = {
         name = "subnet_terraform"
@@ -18,49 +19,54 @@ resource "aws_subnet" "subnet"{
 }
 resource "aws_internet_gateway" "igw"{
     vpc_id = aws_vpc.main.id
+}
+resource "aws_route_table" "rt" {
+    vpc_id = aws_vpc.main.id
 
-    route {
+     route {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_gateway.igw.id
     }
 }
-resource "aws_route_table_associatio" "rta" {
-    subnet_id = aws_subnet.subnet.id
-    route_table_id = aws_route_table.rt.id
+resource "aws_route_table_association" "rta" {
+  subnet_id      = aws_subnet.subnet.id
+  route_table_id = aws_route_table.rt.id
 }
+
 resource "aws_security_group" "sg"{
     vpc_id = aws_vpc.main.id
 
     ingress {
         description = "SSH"
-        from_port = "22"
-        to_port = "22"
+        from_port = 22
+        to_port = 22
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
     ingress {
         description = "HTTP"
-        from_port = "80"
-        to_port = "80"
+        from_port = 80
+        to_port = 80
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
     egress {
-        from_port = "0"
-        to_port = "0"
+        from_port = 0
+        to_port = 0
         protocol = "-1"
-        cidr_blocks = ["o.0.0.0/0"]
+        cidr_blocks = ["0.0.0.0/0"]
     }
 }
 
 # Configurando a maquina virtual EC2
 
-resource "aws_instance""web" {
+resource "aws_instance" "web" {
     ami = "ami-06a73f9d93a3879b5"
     instance_type = "t2.micro"
-    subnet_id = "subnet-0d17b35f24421d57f"
+
+    subnet_id = aws_subnet.subnet.id
     vpc_security_group.ids = [aws_security_group.sg.id]
-    associate_public_ip_adress = true
+    associate_public_ip_address = true
     key_name = "RSA_ServerPub"
     tags = {
         Name = "terraform-ec2"
