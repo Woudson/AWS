@@ -11,7 +11,7 @@ resource "aws_vpc" "main" {
 resource "aws_subnet" "subnet" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.0.1.0/24"
-  availability_zone       = "sa-east-1"
+  availability_zone       = "sa-east-1a"
   map_public_ip_on_launch = true
 
   tags = {
@@ -77,7 +77,7 @@ resource "aws_instance" "web" {
   vpc_security_group_ids = [aws_security_group.sg.id]
 
   associate_public_ip_address = true
-  key_name                    = "RSA_ServerPriv"
+  key_name                    = "RSA_ServerPub"
 
   tags = {
     Name = "terraform-ec2"
