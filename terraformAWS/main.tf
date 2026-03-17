@@ -82,6 +82,10 @@ resource "aws_instance" "web" {
 
   associate_public_ip_address = true
   key_name                    = "RSA_ServerPub"
+  depends_on = [
+  aws_subnet.subnet,
+  aws_internet_gateway.igw
+]
 
   tags = {
     Name = "terraform-ec2"
