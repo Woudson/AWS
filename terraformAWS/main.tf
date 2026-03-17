@@ -58,7 +58,7 @@ resource "aws_security_group" "sg"{
 resource "aws_instance""web" {
     ami = "ami-06a73f9d93a3879b5"
     instance_type = "t2.micro"
-    subnet_id = aws_sunet.sebnet.id
+    subnet_id = "subnet-0d17b35f24421d57f"
     vpc_security_group.ids = [aws_security_group.sg.id]
     associate_public_ip_adress = true
     key_name = "RSA_ServerPub"
