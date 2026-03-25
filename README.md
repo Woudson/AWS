@@ -1,2 +1,0 @@
-#AWS
-AWS's project
