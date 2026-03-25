@@ -7,8 +7,7 @@ Infraestrutura escalável com Load Balancer e Auto Scaling
 - Auto Scaling Group
 - EC2 com Nginx
 
-📁 [Ver projeto](https://github.com/Woudson/AWS/blob/main/aws-high-availability-project)
-
+---
 
 ## 🛠️ Tecnologias
 
