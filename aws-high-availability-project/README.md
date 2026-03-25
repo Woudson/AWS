@@ -1,10 +1,4 @@
-# ☁️ AWS Projects Portfolio
-
-Este repositório reúne projetos práticos desenvolvidos na AWS, com foco em arquitetura cloud, automação e boas práticas.
-
-## 🚀 Projeto
-
-### 🔹 AWS High Availability Project
+## 🔹 AWS High Availability Project
 
 Infraestrutura escalável com Load Balancer e Auto Scaling
 
@@ -26,4 +20,4 @@ Infraestrutura escalável com Load Balancer e Auto Scaling
 
 ## 📈 Objetivo
 
-Evoluir meus conhecimento em Cloud Engineering, com foco em arquiteturas escaláveis, seguras e automatizadas.
+Desenvolver uma arquitetura na AWS altamente disponível e escalável, através da criação de uma VPC distribuída por múltiplas Availability Zones, integrando um Application Load Balancer e um Auto Scaling Group, de forma a garantir a distribuição eficiente do tráfego, a resiliência do sistema e a adaptação automática à variação da carga.
