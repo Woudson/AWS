@@ -1,11 +1,15 @@
 ## 🔹 AWS High Availability Project
 
-Infraestrutura escalável com Load Balancer e Auto Scaling
+Principais componentes implementados:
 
-- VPC com múltiplas AZs
-- Application Load Balancer
-- Auto Scaling Group
-- EC2 com Nginx
+- VPC distribuída por 2 Availability Zones
+- Subnets públicas e privadas
+- Internet Gateway + Route Tables
+- Network ACLs e Security Groups
+- Application Load Balancer para distribuição de tráfego
+- Auto Scaling Group para elasticidade e resiliência
+- Instância EC2 com Nginx configurado
+- Arquitetura preparada para lidar com falhas e picos de tráfego
 
 ---
 
