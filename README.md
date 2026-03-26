@@ -22,7 +22,7 @@ Infraestrutura escalável com Load Balancer e Auto Scaling
 - Terraform
 - Nginx
 
-### 🔹Arquitetura moderna com AWS Lambda
+### 🔹Arquitetura moderna com AWS Lambda (projeto em andamento)
 
 -
 -
