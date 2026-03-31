@@ -60,7 +60,7 @@ resource "aws_security_group" "sg"{
 
 
 # Configurando a maquina virtual EC2
-
+ 
 resource "aws_instance" "web" {
     ami = "ami-06a73f9d93a3879b5"
     instance_type = "t2.micro"
